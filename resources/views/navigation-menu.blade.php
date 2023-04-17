@@ -35,6 +35,9 @@
                     @role('Caissiere')
                     <x-jet-nav-link href="{{ route('admin.ticket.create', null, false) }}" :active="request()->routeIs('admin.ticket.create')">
                         {{ __('Achat de Tickets') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('groupe.index', null, false) }}" :active="request()->routeIs('groupe.index')">
+                        {{ __('Groupes') }}
                     </x-jet-nav-link> 
                     @endrole
 

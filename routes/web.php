@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GroupeController;
 use App\Http\Livewire\Admin\Award\Liste;
 use App\Http\Livewire\Admin\Ticket\Liste as TicketListe;
 use Illuminate\Support\Facades\Route;
@@ -121,6 +122,8 @@ Route::middleware([
     Route::post('/tickets/store/solo_interne', 'App\Http\Controllers\TicketController@storeInterneSolo')->name('admin.ticket.store.tsi') ;
     Route::post('/tickets/store/solo_externe', 'App\Http\Controllers\TicketController@storeExterneSolo')->name('admin.ticket.store.tse') ;
     Route::post('/tickets/store/couple_mixte', 'App\Http\Controllers\TicketController@storeMixteCouple')->name('admin.ticket.store.tcm') ;
+
+    Route::resource('/tickets/groupe', GroupeController::class);
 
 
     //tickets 

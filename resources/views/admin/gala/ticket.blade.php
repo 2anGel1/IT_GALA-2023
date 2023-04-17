@@ -129,15 +129,15 @@
                     <div class="ticket-title">
                         <div class="ticket-date-time">
                             <div class="day">
-                                <span class="value">11</span>
+                                <span class="value">17</span>
                             </div>
                             <div class="mt">
                                 <div class="month">JUIN</div>
-                                <div class="time">18H30</div>
+                                <div class="time">19H</div>
                             </div>
                         </div>
                         <div class="ticket-header">
-                            <div class="itgala">IT GALA 2022</div>
+                            <div class="itgala">IT GALA 2023</div>
                             <div>Prépare-toi !</div>
                         </div>
                     </div>

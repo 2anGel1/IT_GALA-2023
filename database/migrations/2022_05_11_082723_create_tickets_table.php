@@ -33,8 +33,12 @@ class CreateTicketsTable extends Migration
             $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('type_tickets')->onDelete('cascade');
 
+            $table->foreignId('groupe_id')->nullable()->constrained()->onDelete('cascade');
+            $table->string('promotion')->nullable();
             $table->integer("nbUtilisation")->default("1");
             $table->boolean("statut")->default(false) ;
+            $table->boolean('statutSpecial')->default(false);
+
 
             $table->string("code");
 

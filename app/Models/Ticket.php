@@ -26,4 +26,7 @@ class Ticket extends Model
         return User::find($log->user_id) ;
     }
 
+    public function groupe(){
+        return $this->belongsTo(Groupe::class);
+    }
 }

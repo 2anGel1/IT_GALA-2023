@@ -105,7 +105,9 @@ class TicketController extends Controller
             session()->flash('success', 'Mail envoyé avec success.');
 
         } catch (\Throwable $th) {
-            session()->flash('Warning', 'Erreur d\envoie du mail');
+            // print_r($th);
+            dd($th);
+            session()->flash('Warning', 'Erreur d\'envoie du mail');
         }
 
         return redirect()->back() ;
@@ -352,6 +354,7 @@ class TicketController extends Controller
                 'gala_id' => $gala->id,
                 'personne_id' => $personne->id,
                 'type_id' => $typeTicket->id,
+                'promotion' => $etudiant->promotion,
                 'code' => ''
             ]);
 

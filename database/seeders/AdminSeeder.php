@@ -20,10 +20,10 @@ class AdminSeeder extends Seeder
     public function run()
     {
         $gala = Gala::create([
-            'annee' => '2021-2022',
-            'nomPco1' => 'Ahiman Ruth',
-            'nomPco2' => 'Bamaba Awa Nourdine',
-            'nbPlace' => 150
+            'annee' => '2022-2023',
+            'nomPco1' => 'Atta Adjoumani',
+            'nomPco2' => 'Brye Oceanne',
+            'nbPlace' => 200
         ]);
 
 
@@ -50,6 +50,36 @@ class AdminSeeder extends Seeder
 
             
         $user->assignRole('Super@Administrateur') ;
+
+        $caissiere1 = User::create([
+            'name' => '@Caissiere',
+            'email' => 'adminGala@C2E.com',
+            'password' => Hash::make("@Gala@2k22@"),
+            'isAdmin' => true
+        ]);
+
+            
+        $caissiere1->assignRole('Caissiere') ;
+
+        $participant1 = User::create([
+            'name' => '@Participant',
+            'email' => 'adminGala@C2E.com',
+            'password' => Hash::make("@Gala@2k22@"),
+            'isAdmin' => true
+        ]);
+
+            
+        $participant1->assignRole('participant') ;
+
+        $controller1 = User::create([
+            'name' => '@Controlleur',
+            'email' => 'adminGala@C2E.com',
+            'password' => Hash::make("@Gala@2k22@"),
+            'isAdmin' => true
+        ]);
+
+            
+        $controller1->assignRole('Controlleur') ;
         
 
         $user1 = User::create([

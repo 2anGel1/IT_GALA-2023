@@ -6,7 +6,7 @@ Bonjour {{ $maildata['personne']->nom }} {{ $maildata['personne']->prenom  }} !
 Le bureau du C2E tient à vous remercier pour l'achat de votre ticket de participation au GALA.
 Vous trouverez votre ticket de participation en pièce jointe.
 
-Rendez-vous le samedi 11 juin à 18h30!
+Rendez-vous le samedi 17 juin à 19H!
 
 Cordialement,<br>
 

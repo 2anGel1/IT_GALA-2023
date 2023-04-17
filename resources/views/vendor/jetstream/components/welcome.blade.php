@@ -14,7 +14,7 @@
                 Au-delà de son aspect purement festif, il réunit les grands acteurs de l’industrie des Technologies de l’Information et de la
                 Communication (TIC). Il favorise également les retrouvailles entre toutes les promotions de l’ESATIC, et fait le bilan de toutes les
                 activités effectuées au cours de l’année.
-                La 5ème Edition du gala de fin d’année se déroulera le Samedi 11 Juin 2022 à 18h30.
+                La 6ème Edition du gala de fin d’année se déroulera le Samedi 17 Juin 2023 à 19H.
             </div>
         </div>
    </div>
