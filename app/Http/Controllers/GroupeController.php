@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Groupe;
 use App\Models\Personne;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 
 class GroupeController extends Controller
@@ -19,13 +20,6 @@ class GroupeController extends Controller
         return view('admin.tickets.groupe.index', compact('groupes'));
         // return view('admin.tickets.groupe.index', compact('personnes'));
     }
-
-    // public function list()
-    // {
-    //     $groupes = Groupe::all();
-    //     $nb_groupes = $groupes->count();
-    //     return view('admin.tickets.groupe.list', compact(['groupes', 'nb_groupes']));
-    // }
 
     /**
      * Show the form for creating a new resource.
@@ -45,6 +39,7 @@ class GroupeController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'libelle' => 'required'
         ]);
@@ -52,6 +47,17 @@ class GroupeController extends Controller
         $groupe = new Groupe();
         $groupe->libelle = $request->libelle;
         $groupe->save();
+
+        if (isset($request->tickets)) {
+            foreach ($request->tickets as $ticket_id) {
+                $ticket = Ticket::find($ticket_id);
+                $ticket->groupe_id = $groupe->id;
+                $ticket->save();
+            }
+            $groupe->nbPersonnes += 1;
+            $groupe->save();
+        }
+
         session()->flash('success', 'Groupe enregistré avec success.');
         return redirect()->back();
     }
@@ -65,9 +71,8 @@ class GroupeController extends Controller
     public function show($id)
     {
         $groupe = Groupe::find($id);
-        if($groupe){
-            // return view()
-            return '';
+        if ($groupe) {
+            return view('admin.tickets.groupe.show', compact('groupe'));
         }
     }
 
@@ -79,7 +84,10 @@ class GroupeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $groupe = Groupe::find($id);
+        if ($groupe) {
+            return view('admin.tickets.groupe.edit', compact('groupe'));
+        }
     }
 
     /**
@@ -103,5 +111,24 @@ class GroupeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function searchTickets(Request $request)
+    {
+        $tickets = [];
+        if($request->has('q')){
+        // if (true) {
+            $search = $request->q;
+            $tickets = Ticket::join('personnes','tickets.personne_id','=','personnes.id')
+                    ->select('tickets.id','tickets.code','personnes.matricule')
+                    ->whereNull('tickets.groupe_id')
+                    ->where(function($query) use ($search){
+                        $query->where('personnes.matricule', 'LIKE', "%$search%")
+                            ->orWhere('personnes.nom', 'LIKE', "%$search%")
+                            ->orWhere('personnes.prenom', 'LIKE', "%$search%");
+                    })
+                    ->get();
+        }
+        return response()->json($tickets);
     }
 }

@@ -42,22 +42,22 @@ Route::middleware([
 
 Route::middleware([
     'auth:sanctum',
-    
+
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
 
-   
+
     Route::group(['middleware' => ['role:Super@Administrateur']], function () {
 
         Route::get('/parametres', function () {
             return view('admin.parametres');
         })->name('admin.parametres');
-    
+
         Route::post('/importExcel', 'App\Http\Controllers\ExcelController@importExcel')->name('importExcel');
         Route::post('/delete/allStudent', 'App\Http\Controllers\ExcelController@DeleteAllStudent')->name('delete.allStudent') ;
-    
-    
+
+
         Route::get('/gestionnaire', function(){
             return view('admin.gestionnaire') ;
         } )->name('admin.gestionnaire');
@@ -74,17 +74,17 @@ Route::middleware([
         Route::get('/etudiant', function(){
             return view('admin.etudiant');
         })->name('admin.etudiants');
-    
+
         Route::get('/create/nomine', 'App\Http\Controllers\NomineController@create')->name('admin.award.nomination') ;
-    
+
         Route::post('/nominer', 'App\Http\Controllers\NomineController@store')->name('admin.award.nominer');
-    
+
         Route::get('/liste/nomines', App\Http\Livewire\Admin\Award\Liste::class)->name('admin.award.liste') ;
-    
-    
+
+
 
     });
-    
+
 
 
     Route::group(['middleware' => ['role:participant']], function () {
@@ -100,7 +100,7 @@ Route::middleware([
 
 
         Route::post('/awards/remove/vote', 'App\Http\Controllers\EtudiantController@removeVote')->name('admin.award.remove_vote');
-        
+
         Route::get('/awards/categories',  'App\Http\Controllers\VoteController@index')->name('admin.award.liste_categorie') ;
 
     });
@@ -123,10 +123,11 @@ Route::middleware([
     Route::post('/tickets/store/solo_externe', 'App\Http\Controllers\TicketController@storeExterneSolo')->name('admin.ticket.store.tse') ;
     Route::post('/tickets/store/couple_mixte', 'App\Http\Controllers\TicketController@storeMixteCouple')->name('admin.ticket.store.tcm') ;
 
+    Route::get('/tickets/groupe/search', [GroupeController::class, 'searchTickets'])->name('groupe.searchTickets');
     Route::resource('/tickets/groupe', GroupeController::class);
 
 
-    //tickets 
+    //tickets
     Route::get('/tickets/index', TicketListe::class)->name('admin.ticket.liste') ;
     Route::get('/ticket/show/{id}', 'App\Http\Controllers\TicketController@getTicket')->name('admin.ticket.show') ;
     Route::get('/ticket/sendTicket/{id}', 'App\Http\Controllers\TicketController@sendTicketMail')->name('admin.ticket.send_mail') ;
@@ -137,7 +138,7 @@ Route::middleware([
 
     Route::get('/controle/index', 'App\Http\Controllers\ControlController@index')->name('admin.control.index');
     Route::post('/control/soumission', 'App\Http\Controllers\ControlController@Soumission')->name('qrcode.Soumission');
-    
+
 });
 
 });

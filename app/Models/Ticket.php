@@ -29,4 +29,9 @@ class Ticket extends Model
     public function groupe(){
         return $this->belongsTo(Groupe::class);
     }
+
+    public function personne()
+    {
+        return $this->belongsTo(Personne::class);
+    }
 }

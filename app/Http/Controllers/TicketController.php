@@ -34,7 +34,7 @@ class TicketController extends Controller
     {
 
         $personne = personne::find($id) ;
-        
+
         $type = $personne->getTicket() ;
 
         $nom = $personne->nom;
@@ -42,20 +42,20 @@ class TicketController extends Controller
         $code = $personne->getTicketCode() ;
 
         $m = Crypt::encryptString('Esatic@'.$code );
-       
-       
+
+
         $qr = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->generate($m));
         $data = [
-            
+
             'type' => $type,
             'nom' => $nom,
             'prenom' => $prenom,
             'identifiant' => $code,
             'qr_code' => $qr
         ];
-          
+
         $pdf = PDF::loadView('admin.gala.ticket', $data);
-       
+
        // return $pdf->download('dfdf.pdf');
 
         return $pdf->stream($nom.'_'.$prenom.'.pdf');
@@ -64,7 +64,7 @@ class TicketController extends Controller
     }
 
     public function sendTicketMail(int $id)
-    {   
+    {
         $personne = personne::find($id) ;
 
         $maildata = [
@@ -72,7 +72,7 @@ class TicketController extends Controller
             'personne' => $personne
         ];
 
-        
+
         $type = $personne->getTicket() ;
 
         $nom = $personne->nom;
@@ -80,20 +80,20 @@ class TicketController extends Controller
         $code = $personne->getTicketCode() ;
 
         $m = Crypt::encryptString('Esatic@'.$code );
-       
-       
+
+
         $qr = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->generate($m));
         $data = [
-            
+
             'type' => $type,
             'nom' => $nom,
             'prenom' => $prenom,
             'identifiant' => $code,
             'qr_code' => $qr
         ];
-          
+
         $pdf = PDF::loadView('admin.gala.ticket', $data);
-       
+
         $pdf_name = $nom.'_'.$prenom ;
        $email = $personne->email;
         //$email = 'awabamba973@gmail.com' ;
@@ -105,13 +105,11 @@ class TicketController extends Controller
             session()->flash('success', 'Mail envoyé avec success.');
 
         } catch (\Throwable $th) {
-            // print_r($th);
-            dd($th);
             session()->flash('Warning', 'Erreur d\'envoie du mail');
         }
 
         return redirect()->back() ;
-         
+
     }
 
     /**
@@ -229,7 +227,7 @@ class TicketController extends Controller
 
             return redirect()->back() ;
         }
-        
+
         // verification des étudaints
 
         $etudiantHomme = Etudiant::where('matricule', $request->matricule_h)->first() ;
@@ -301,13 +299,13 @@ class TicketController extends Controller
         }
 
         return redirect()->back() ;
-       
+
     }
 
 
     public function storeInterneSolo(Request $request)
     {
-        
+
         $request->validate([
             'nom' => 'required|string',
             'prenom' => 'required|string',
@@ -315,16 +313,16 @@ class TicketController extends Controller
             'contact' => 'required|string',
             'matricule' => 'required|min:10',
         ]);
-       
+
         $typeTicket = TypeTicket::where('libelle', 'solo interne')->first() ;
-          
+
         $gala = Gala::orderBy('created_at', 'DESC')->first() ;
 
 
         // on verifie si ils n'ont pas déjà éffectué le paiement
 
         $personneExist = Personne::where('matricule', $request->matricule)->first() ;
-       
+
 
         if($personneExist)
         {
@@ -332,14 +330,14 @@ class TicketController extends Controller
 
             return redirect()->back() ;
         }
-        
+
         // verification des étudaints
 
         $etudiant = Etudiant::where('matricule', $request->matricule)->first() ;
 
         if($etudiant)
         {
-            
+
             $personne = Personne::create([
                 'nom' => $request->nom ,
                 'prenom' => $request->prenom,
@@ -370,9 +368,9 @@ class TicketController extends Controller
 
 
             session()->flash('success', 'Ticket enregistré avec success.');
-    
+
         }
-        
+
         else
         {
             session()->flash('Warning', 'Matricule  incorrecte .');
@@ -380,7 +378,7 @@ class TicketController extends Controller
 
 
         return redirect()->back() ;
-       
+
     }
 
 
@@ -426,9 +424,9 @@ class TicketController extends Controller
         $ticket->save() ;
 
         session()->flash('success', 'Ticket enregistré avec success.');
-    
+
         return redirect()->back() ;
-       
+
     }
 
 
@@ -479,9 +477,9 @@ class TicketController extends Controller
         $ticket->save() ;
 
         session()->flash('success', 'Ticket enregistré avec success.');
-    
+
         return redirect()->back() ;
-       
+
     }
 
     public function storeMixteCouple(Request $request)
@@ -507,7 +505,7 @@ class TicketController extends Controller
         // on verifie si ils n'ont pas déjà éffectué le paiement
 
         $personneExist = Personne::where('matricule', $request->matricule)->first() ;
-       
+
 
         if($personneExist)
         {
@@ -515,14 +513,14 @@ class TicketController extends Controller
 
             return redirect()->back() ;
         }
-        
+
         // verification des étudaints
 
         $etudiant = Etudiant::where('matricule', $request->matricule)->first() ;
 
         if($etudiant)
         {
-            
+
             $personne_i = Personne::create([
                 'nom' => $request->nom_i ,
                 'prenom' => $request->prenom_i,
@@ -534,7 +532,7 @@ class TicketController extends Controller
             $personne_e = Personne::create([
                 'nom' => $request->nom_e ,
                 'prenom' => $request->prenom_e,
-                'email' => $request->email_e 
+                'email' => $request->email_e
             ]);
 
 
@@ -559,9 +557,9 @@ class TicketController extends Controller
 
 
             session()->flash('success', 'Ticket enregistré avec success.');
-    
+
         }
-        
+
         else
         {
             session()->flash('Warning', 'Matricule de l\'homme incorrecte .');
@@ -569,7 +567,7 @@ class TicketController extends Controller
 
 
         return redirect()->back() ;
-       
+
     }
 
 
@@ -600,7 +598,7 @@ class TicketController extends Controller
 
             return redirect()->back() ;
         }
-        
+
         // verification des étudaints
 
         $etudiantHomme = Etudiant::where('matricule', $request->matricule_1)->first() ;
@@ -656,14 +654,14 @@ class TicketController extends Controller
                 session()->flash('Warning', 'Matricule de l\'etudiant 2 incorrecte .');
             }
 
-          
+
         }else
         {
             session()->flash('Warning', 'Matricule de l\'etudiant 1 incorrecte .');
         }
 
         return redirect()->back() ;
-       
+
     }
 
 
