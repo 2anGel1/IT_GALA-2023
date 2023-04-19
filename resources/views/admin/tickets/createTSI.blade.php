@@ -8,15 +8,15 @@
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
-                
+
                 <div class="  py-6 px-6">
 
                         @if ($message = Session::get('success'))
                             <div class="flex justify-center py-4">
-                                
+
                                 <div
                                     class="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
-                                
+
                                     <div class="flex items-center justify-center w-12 bg-green-500">
                                         <svg
                                         class="w-6 h-6 text-white fill-current"
@@ -28,7 +28,7 @@
                                         />
                                         </svg>
                                     </div>
-                            
+
                                     <div class="px-4 py-2 -mx-3">
                                         <div class="mx-3">
                                             <span class="font-bold text-green-500 dark:text-green-400"
@@ -40,16 +40,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
-                        @endif 
+                        @endif
 
                         @if ($message = Session::get('Warning'))
                             <div class="flex justify-center py-4">
-                                
+
                                 <div
                                     class="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
-                                
+
                                     <div class="flex items-center justify-center w-12 bg-amber-500">
                                         <svg
                                         class="w-6 h-6 text-white fill-current"
@@ -61,7 +61,7 @@
                                         />
                                         </svg>
                                     </div>
-                            
+
                                     <div class="px-4 py-2 -mx-3">
                                         <div class="mx-3">
                                             <span class="font-bold text-amber-500 dark:text-amber-400"
@@ -73,7 +73,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         @endif
 
@@ -83,7 +83,7 @@
                                 @csrf
 
                                 <div class="grid md:grid-cols-6 gap-6">
-                                    
+
                                     <div class="col-span-2 pt-0 mb-3">
                                         <label class="font-bold "> Nom</label>
                                         <input type="text" placeholder="Nom"   name='nom' value="{{old("nom")}}"
@@ -94,8 +94,8 @@
                                     </div>
 
                                     <div class="col-span-2 pt-0 mb-3">
-                                        <label class="font-bold "> Prenom</label>
-                                        <input type="text" placeholder="prenom"   name='prenom' value="{{old("prenom")}}"
+                                        <label class="font-bold "> Prénom</label>
+                                        <input type="text" placeholder="Prénom"   name='prenom' value="{{old("prenom")}}"
                                         class="relative w-full px-3 py-2 text-sm text-gray-600 placeholder-gray-400 bg-white border-gray-400 rounded outline-none focus:border-coolGray-400 focus:outline-none focus:ring-coolGray-100" />
                                         @error('prenom')
                                                 <div class="text-sm font-thin text-center text-red-600">{{ $errors->first('prenom') }}  </div>
@@ -104,18 +104,18 @@
 
                                     <div class="col-span-2 pt-0 mb-3">
                                         <label class="font-bold "> Adresse Email</label>
-                                        <input type="email" placeholder="email"   name='email' value="{{old("email")}}"
+                                        <input type="email" placeholder="Email"   name='email' value="{{old("email")}}"
                                         class="relative w-full px-3 py-2 text-sm text-gray-600 placeholder-gray-400 bg-white border-gray-400 rounded outline-none focus:border-coolGray-400 focus:outline-none focus:ring-coolGray-100" />
                                         @error('email')
                                                 <div class="text-sm font-thin text-center text-red-600">{{ $errors->first('email') }}  </div>
                                         @enderror
                                     </div>
 
-                                    
+
 
                                     <div class="col-span-2 pt-0 mb-3">
                                         <label class="font-bold "> Contact</label>
-                                        <input type="tel" placeholder="contact"   name='contact' value="{{old("contact")}}"
+                                        <input type="tel" placeholder="Contact"   name='contact' value="{{old("contact")}}"
                                         class="relative w-full px-3 py-2 text-sm text-gray-600 placeholder-gray-400 bg-white border-gray-400 rounded outline-none focus:border-coolGray-400 focus:outline-none focus:ring-coolGray-100" />
                                         @error('contact')
                                                 <div class="text-sm font-thin text-center text-red-600">{{ $errors->first('contact') }}  </div>
@@ -124,26 +124,26 @@
 
                                     <div class="col-span-2 pt-0 mb-3">
                                         <label class="font-bold "> Matricule  </label>
-                                        <input type="text" placeholder="matricule de l'homme"   name='matricule' value="{{old("matricule")}}"
+                                        <input type="text" placeholder="Matricule de l'étudiant"   name='matricule' value="{{old("matricule")}}"
                                         class="relative w-full px-3 py-2 text-sm text-gray-600 placeholder-gray-400 bg-white border-gray-400 rounded outline-none focus:border-coolGray-400 focus:outline-none focus:ring-coolGray-100" />
                                         @error('matricule')
                                                 <div class="text-sm font-thin text-center text-red-600">{{ $errors->first('matricule') }}  </div>
                                         @enderror
                                     </div>
 
-       
+
                                     <div class=" col-span-2 pt-0 mb-3">
                                         <label class="font-bold ">Statut</label>
                                         <input type="text" disabled value="Etudiant(e) de l'ESATIC"
                                         class="relative w-full px-3 py-2 text-md text-gray-600 placeholder-gray-400 bg-white border-gray-400 rounded outline-none focus:border-coolGray-400 focus:outline-none focus:ring-coolGray-100" />
-                                       
+
                                     </div>
 
                                     <div class=" col-span-2 pt-0 mb-3">
                                         <label class="font-bold "> Prix du Ticket </label>
                                         <input type="text" disabled value="{{$categorie->prix}} F CFA "
                                         class="relative w-full px-3 font-bold py-2 text-md  placeholder-gray-400 bg-white border-gray-400 rounded outline-none focus:border-coolGray-400 focus:outline-none focus:ring-coolGray-100" />
-                                       
+
                                     </div>
 
                                     <div class="col-span-2 flex justify-center">
@@ -153,17 +153,17 @@
                                     </div>
 
                                 </div>
-                                
-                               
+
+
                             </form>
-                                             
+
                     </div>
 
                 </div>
-                
+
             </div>
         </div>
     </div>
 
-   
+
 </x-app-layout>

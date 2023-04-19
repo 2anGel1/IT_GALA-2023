@@ -10,28 +10,28 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ExcelController extends Controller
 {
-    
-    public function importExcel(Request $request) 
+
+    public function importExcel(Request $request)
     {
         $request->validate([
             'import_file' => 'required'
         ]);
-        
+
       try{
         Excel::import(new EtudiantImport,$request->import_file);
 
         $request->session()->flash('success', 'Mise à jour éffectuée');
-           
+
       }
       catch(Exception $e)
       {
-
+        // dd($e);
         $request->session()->flash('Warning', 'Certains étudiants sont déjà enregistrés ');
       }
         return back();
     }
 
-    public function exportExcel($type) 
+    public function exportExcel($type)
     {
         return Excel::download(new EtudiantImport, 'ITAWARD.'.$type);
     }

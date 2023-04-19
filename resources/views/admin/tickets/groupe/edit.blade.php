@@ -67,9 +67,9 @@
 
                     <div class=" py-4  my-4 ">
 
-                        <form style="" action="{{ route('groupe.store') }}" class="" method="post">
+                        <form style="" action="{{ route('groupe.update', $groupe->id) }}" class="" method="post">
                             @csrf
-
+                            @method('PUT')
                             <div class="flex gap-6">
 
                                 <div class="col-span-4 pt-0 mb-3 mx-auto">
@@ -83,7 +83,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-span-4 pt-0 mb-3 mx-auto">
-                                    <label class="font-bold "> Ajouter des tickets (optionnel)</label>
+                                    <label class="font-bold "> Ajouter des tickets (optionnel)</label><br>
                                     <select
                                         class="tickets relative w-full px-3 py-2 text-sm text-gray-600 placeholder-gray-400 bg-white border-gray-400 rounded outline-none focus:border-coolGray-400 focus:outline-none focus:ring-coolGray-100"
                                         type="text" multiple style="width:500px;" name="tickets[]"></select>
@@ -95,7 +95,33 @@
                                 </div>
 
                             </div>
-                            {{-- @livewire('admin.groupe.groupe') --}}
+                            <div class="gap-6 mx-auto w-1/2 text-center">
+                                <h1 class="mb-3 font-bold mt-3">Liste des tickets associés au groupe</h1>
+                                <div class="relative overflow-x-auto">
+                                    <table class="w-full text-sm text-left text-gray-500">
+                                        <thead class="text-xs text-dark uppercase bg-gray-300">
+                                            <tr class="mt-1">
+                                                <th scope="col" class="px-6 py-3">Code</th>
+                                                <th scope="col" class="px-6 py-3">Matricule étudiant</th>
+                                                <th scope="col" class="px-6 py-3">Retirer</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($groupe->tickets as $ticket)
+                                                <tr class="bg-white border">
+                                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">{{ $ticket->code }}</td>
+                                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">{{ $ticket->personne->matricule }}</td>
+                                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                        <input type="checkbox" name="toDelete[]" id="{{ $ticket->code }}"
+                                                            value="{{ $ticket->id }}">
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
                             <div class="col-span-2 flex justify-center">
                                 <div class="">
                                     <button class="px-4 py-2 mt-5 font-bold text-white bg-gray-600 rounded-md">
@@ -116,7 +142,7 @@
     </div>
     <script type="text/javascript">
         $('.tickets').select2({
-            placeholder: 'Selectionner un ticket (entrer le matricule)',
+            placeholder: 'Selectionner un ticket (entrer le matricule / nom / prénoms)',
             escapeMarkup: function(markup) {
                 return markup;
             },

@@ -64,6 +64,7 @@ Route::middleware([
 
 
         Route::get('/exportpdf','App\Http\Controllers\pdfController@exportPdfListe')->name('exportPDF');
+        Route::get('/exportGroupePdf', 'App\Http\Controllers\pdfController@exportPdfGroupe')->name('exportGroupePDF');
 
         Route::get('/exportWinnerPdf','App\Http\Controllers\pdfController@exportAwardPDF')->name('exportWinnersPDF');
 
@@ -132,12 +133,14 @@ Route::middleware([
     Route::get('/ticket/show/{id}', 'App\Http\Controllers\TicketController@getTicket')->name('admin.ticket.show') ;
     Route::get('/ticket/sendTicket/{id}', 'App\Http\Controllers\TicketController@sendTicketMail')->name('admin.ticket.send_mail') ;
 
-    });
+});
 
-    Route::group(['middleware' => ['role:Controlleur']], function () {
+Route::group(['middleware' => ['role:Controlleur']], function () {
 
-    Route::get('/controle/index', 'App\Http\Controllers\ControlController@index')->name('admin.control.index');
-    Route::post('/control/soumission', 'App\Http\Controllers\ControlController@Soumission')->name('qrcode.Soumission');
+    Route::get('/controle/entree', 'App\Http\Controllers\ControlController@entree')->name('admin.control.entree');
+    Route::get('/controle/utilisationSpeciale', 'App\Http\Controllers\ControlController@utilisationSpeciale')->name('admin.control.utilisationSpeciale');
+    Route::post('/controle/soumission/entree', 'App\Http\Controllers\ControlController@SoumissionEntree')->name('qrcode.SoumissionEntree');
+    Route::post('/controle/soumission/utilisationSpeciale', 'App\Http\Controllers\ControlController@SoumissionUtilisationSpeciale')->name('qrcode.SoumissionSpeciale');
 
 });
 

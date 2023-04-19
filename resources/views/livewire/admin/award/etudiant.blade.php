@@ -1,9 +1,9 @@
 <div>
 
     <div class="flex  justify-center py-2 px-4 ">
-        
+
         <div class="grid md:grid-cols-3 ">
-           
+
             <div class="pt-0 mb-3">
                 <div class="ml-3 ">
                     <label for="matricule" class="font-bold text-gray-700">Matricule</label>
@@ -13,11 +13,11 @@
                       <input   wire:model='matricule' value="{{old('matricule')}}"
                        id="matricule" type="text" class="w-64 h-8 border-gray-300 rounded text-orange focus:ring-orange">
                     </div>
-                    
-                </div> 
-    
+
+                </div>
+
             </div>
-    
+
             <div class="pt-0 mb-3">
                 <div class="ml-3 ">
                     <label for="nom" class="font-bold text-gray-700">Nom ou prénoms</label>
@@ -27,13 +27,13 @@
                       <input   wire:model='nom' value="{{old('nom')}}"
                        id="nom" type="text" class="w-64 h-8 border-gray-300 rounded text-orange focus:ring-orange">
                     </div>
-                    
-                </div> 
-    
+
+                </div>
+
             </div>
-    
+
             <div class="pt-5 w-32 ml-3 px-2 py-2  ">
-              
+
                 <select  wire:model='promotion' value="{{old('promotion')}}"
                          class="relative w-full px-4 py-2 text-sm text-gray-600 placeholder-gray-400 bg-white border-gray-400 rounded outline-none form-select focus:border-coolGray-400 focus:outline-none focus:ring-coolGray-100">
                         <option value="10">IT 11</option>
@@ -48,9 +48,9 @@
                         <option value="2">IT 2</option>
                         <option value="1">IT 1</option>
                 </select>
-    
+
             </div>
-    
+
         </div>
 
 
@@ -65,7 +65,7 @@
                             <thead class="bg-gray-50">
                             <tr>
                                 <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                    Matricule 
+                                    Matricule
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                    Nom et Prenoms
@@ -77,19 +77,19 @@
                                     Promotion
                                 </th>
 
-                            
-                                
+
+
 
                             </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach ($etudiants as $etudiant)
                                 <tr>
-                                    
+
 
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            
+
                                             <div class="ml-4">
                                                 <div class="text-sm font-bold  text-gray-900 text-md">
                                                     {{$etudiant->matricule}}
@@ -100,7 +100,7 @@
 
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            
+
                                             <div class="ml-4">
                                                 <div class="text-sm font-bold  text-gray-900 text-md">
                                                     {{$etudiant->nom}}
@@ -114,7 +114,7 @@
 
                                     <td class="hidden md:block   px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            
+
                                             <div class="ml-4">
                                                 <div class="text-sm font-bold  text-gray-900 text-md">
                                                     {{$etudiant->classe}}
@@ -125,7 +125,7 @@
 
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            
+
                                             <div class="ml-4">
                                                 <div class="text-sm font-bold  text-gray-900 text-md">
                                                     IT {{$etudiant->promotion}}
@@ -136,16 +136,16 @@
 
                                     {{-- <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            
+
                                             <button wire:click='nominer({{$etudiant->id}})' class="px-4 py-2 mt-5 font-bold text-white  bg-gray-600 rounded-md"> Nominer </button>
-                                       
+
                                         </div>
                                     </td>
                                     --}}
-                                    
+
                                 </tr>
                                 @endforeach
-                        
+
                             </tbody>
                         </table>
                     </div>

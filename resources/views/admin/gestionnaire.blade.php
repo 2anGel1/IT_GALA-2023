@@ -8,19 +8,19 @@
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
-                
+
                 <div class="grid grid-rows-2 p-4  ">
 
-                    
+
 
                     <div class="text-center ">
 
                         @if ($message = Session::get('success'))
                             <div class="flex justify-center py-4">
-                                
+
                                 <div
                                     class="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
-                                
+
                                     <div class="flex items-center justify-center w-12 bg-green-500">
                                         <svg
                                         class="w-6 h-6 text-white fill-current"
@@ -32,7 +32,7 @@
                                         />
                                         </svg>
                                     </div>
-                            
+
                                     <div class="px-4 py-2 -mx-3">
                                         <div class="mx-3">
                                             <span class="font-bold text-green-500 dark:text-green-400"
@@ -44,16 +44,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
-                        @endif 
+                        @endif
 
                         @if ($message = Session::get('Warning'))
                             <div class="flex justify-center py-4">
-                                
+
                                 <div
                                     class="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
-                                
+
                                     <div class="flex items-center justify-center w-12 bg-amber-500">
                                         <svg
                                         class="w-6 h-6 text-white fill-current"
@@ -65,7 +65,7 @@
                                         />
                                         </svg>
                                     </div>
-                            
+
                                     <div class="px-4 py-2 -mx-3">
                                         <div class="mx-3">
                                             <span class="font-bold text-amber-500 dark:text-amber-400"
@@ -77,7 +77,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         @endif
 
@@ -96,25 +96,28 @@
                         </div>
 
                          <div class="items-center justify-center gap-4 md:flex ">
-                            
+
                                 <a href="{{ route('exportPDF', false, null) }}" target="_blank">
                                     <button class="px-4 py-2 mt-5 font-bold text-white bg-green-600 rounded-md">Exporter la liste des participants</button>
+                                </a>
+                                <a href="{{ route('exportGroupePDF', false, null) }}" target="_blank">
+                                    <button class="px-4 py-2 mt-5 font-bold text-white rounded-md" style="background-color: #0284c7">Exporter la liste des groupes</button>
                                 </a>
                                 <a href="{{ route('exportWinnersPDF', false, null) }}">
                                     <button class="px-4 py-2 mt-5 font-bold text-white bg-gray-600 rounded-md">Exporter la liste des Nominés</button>
                                 </a>
 
-                           
+
 
                             <form id="viderForm" style="" action="{{ route('delete.allStudent',null,false) }}" class="" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <button class="px-4 py-2 mt-5 font-bold text-white bg-red-700 rounded-md"> Supprimer tous les étudiants </button>
                             </form>
-                        </div> 
+                        </div>
                     </div>
 
                 </div>
-                
+
             </div>
         </div>
     </div>

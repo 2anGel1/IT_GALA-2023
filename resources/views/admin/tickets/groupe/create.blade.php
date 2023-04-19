@@ -83,7 +83,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-span-4 pt-0 mb-3 mx-auto">
-                                    <label class="font-bold "> Ajouter des tickets (optionnel)</label>
+                                    <label class="font-bold "> Ajouter des tickets (optionnel)</label><br>
                                     <select
                                         class="tickets relative w-full px-3 py-2 text-sm text-gray-600 placeholder-gray-400 bg-white border-gray-400 rounded outline-none focus:border-coolGray-400 focus:outline-none focus:ring-coolGray-100"
                                         type="text" multiple style="width:500px;" name="tickets[]"></select>
@@ -116,7 +116,7 @@
     </div>
     <script type="text/javascript">
         $('.tickets').select2({
-            placeholder: 'Selectionner un ticket (entrer le matricule)',
+            placeholder: 'Selectionner un ticket (entrer le matricule / nom / prénom)',
             escapeMarkup: function(markup) {
                 return markup;
             },

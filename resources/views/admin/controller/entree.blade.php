@@ -9,7 +9,7 @@
        <div class="h-full gap-8 md:grid md:grid-cols-6 " >
 
         <div class="col-span-2 px-2 md:h-full ">
-           
+
         </div>
         <div class="col-span-2 px-2 md:h-full ">
             @livewire('admin.ticket.qr-code')
@@ -17,12 +17,12 @@
 
         <div class="font-bold md:col-span-2 h-full  text-center md:text-2xl text-xl ">
             Nous avons scanné <span class="text-myblue"> {{$nb_scanne}}/ {{$nb_tickets}} </span> ticket(s).
-            
+
         </div>
 
        </div>
     </div>
 
- 
+
 
 </x-app-layout>
