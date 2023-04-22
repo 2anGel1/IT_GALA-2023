@@ -69,7 +69,7 @@ class pdfController extends Controller
             ->orderByDesc('nbTickets')
             ->first();
 
-        if ($promotionWinner) {
+        if ($promotionWinner != null) {
             $promotionWinner = $promotionWinner->promotion;
         }
 
