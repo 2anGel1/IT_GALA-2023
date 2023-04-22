@@ -96,17 +96,17 @@ class AdminSeeder extends Seeder
 
         TypeTicket::create([
             'libelle' => 'solo interne',
-            'prix' => 20000,
+            'prix' => 15000,
             'gala_id' => $gala->id
         ]);
 
         TypeTicket::create([
             'libelle' => 'solo externe',
-            'prix' => 25000,
+            'prix' => 15000,
             'gala_id' => $gala->id
         ]);
 
-        TypeTicket::create([
+       /* TypeTicket::create([
             'libelle' => 'couple interne',
             'prix' => 35000,
             'gala_id' => $gala->id
@@ -128,7 +128,7 @@ class AdminSeeder extends Seeder
             'libelle' => 'duo interne',
             'prix' => 35000,
             'gala_id' => $gala->id
-        ]); 
+        ]); */
 
         
     }

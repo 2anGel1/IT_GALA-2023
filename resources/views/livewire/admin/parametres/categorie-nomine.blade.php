@@ -30,6 +30,7 @@
                             class="relative w-full px-4 py-2 text-sm text-gray-600 placeholder-gray-400 bg-white border-gray-400 rounded outline-none form-select focus:border-coolGray-400 focus:outline-none focus:ring-coolGray-100">
           
                                     <option value="0">Toutes les promotions</option>
+                                    <option value="11">IT 11</option>
                                     <option value="10">IT 10</option>
                                     <option value="9">IT 9</option>
                                     <option value="8">IT 8</option>
