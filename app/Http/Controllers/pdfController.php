@@ -67,7 +67,11 @@ class pdfController extends Controller
         $promotionWinner = Ticket::select('promotion', DB::raw('count(*) as nbTickets'))
             ->groupBy('promotion')
             ->orderByDesc('nbTickets')
-            ->first()->promotion;
+            ->first();
+
+        if ($promotionWinner) {
+            $promotionWinner = $promotionWinner->promotion;
+        }
 
         $data = [
             'title' => 'IT GALA 2022',
