@@ -25,7 +25,6 @@ class ExcelController extends Controller
       }
       catch(Exception $e)
       {
-        // dd($e);
         $request->session()->flash('Warning', 'Certains étudiants sont déjà enregistrés ');
       }
         return back();

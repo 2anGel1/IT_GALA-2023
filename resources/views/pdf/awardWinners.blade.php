@@ -117,9 +117,11 @@
        <span style="font-size:20px; font-weight:bold"> Liste des resultats pour l' IT AWARD 2023  </span>
     </div>
 
+    <p>- Vainqueur de la catégorie <span style="font-weight: bold; font-style:italic">"Meilleure promotion"</span> : Promotion <span style="font-weight: bold">IT {{ $promotionWinner }}</span></p>
+
    @foreach ($categories as $categorie )
 
-    Categorie : <span style="font-weight: bold">{{$categorie->libelle}}</span>
+    - Categorie : <span style="font-weight: bold">{{$categorie->libelle}}</span>
 
     <table class="table">
             <thead>
