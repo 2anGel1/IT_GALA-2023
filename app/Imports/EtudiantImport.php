@@ -32,9 +32,9 @@ class EtudiantImport implements ToModel
 
         return new Etudiant([
             'matricule'     => $row[0],
-            'nom'    => $row[1], 
+            'nom'    => $row[1],
             'prenom'    => $row[2],
-            'email'    => 'esatic.student@gmail.com', 
+            'email'    => 'esatic.student@gmail.com',
             'genre'    => $row[3],
             'classe'    => $row[4],
             'promotion'    => $row[5] ,

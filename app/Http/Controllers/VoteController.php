@@ -17,40 +17,29 @@ class VoteController extends Controller
      */
     public function index()
     {
-        $gala = Gala::orderBy('created_at', 'DESC')->first() ;
+        $gala = Gala::orderBy('created_at', 'DESC')->first();
 
-        if(Auth::user()->etudiant)
-        {
-            $indicePromotion = Auth::user()->etudiant->promotion ;
+        if (Auth::user()->etudiant) {
+            $indicePromotion = Auth::user()->etudiant->promotion;
 
             $categories = Categorie::where('gala_id', $gala->id)
-                                    ->where(function($q) use ($indicePromotion){
-                                        $q->where('indicePromotion', 0)
-                                            ->orWhere('indicePromotion',$indicePromotion );
-                                    })->get() ;
+                ->where(function ($q) use ($indicePromotion) {
+                    $q->where('indicePromotion', 0)
+                        ->orWhere('indicePromotion', $indicePromotion);
+                })->get();
+            } else {
+                $categories = Categorie::where('gala_id', $gala->id)->get();
+            }
 
-        }
-        else
-        {
-            $categories = Categorie::where('gala_id', $gala->id)->get() ;
-        }
-        
+        $gala = Gala::orderBy('created_at', 'DESC')->first();
 
+        $statut = $gala->status;
 
-        $gala = Gala::orderBy('created_at', 'DESC')->first() ;
-
-        $statut = $gala->status ;
-
-        if($statut)
-        {
+        if ($statut) {
             return view('participants.categories', compact('categories'));
-        }
-        else
-        {
+        } else {
             return view('galaStopVotes');
         }
-
-      
     }
 
     /**

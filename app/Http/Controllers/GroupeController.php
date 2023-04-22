@@ -6,6 +6,7 @@ use App\Models\Groupe;
 use App\Models\Personne;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class GroupeController extends Controller
 {
@@ -41,7 +42,7 @@ class GroupeController extends Controller
     {
 
         $request->validate([
-            'libelle' => 'required'
+            'libelle' => 'required|unique:groupes,libelle'
         ]);
 
         $groupe = new Groupe();
@@ -53,10 +54,10 @@ class GroupeController extends Controller
                 $ticket = Ticket::find($ticket_id);
                 $ticket->groupe_id = $groupe->id;
                 $ticket->save();
+                $groupe->nbPersonnes += 1;
             }
-            $groupe->nbPersonnes += 1;
-            $groupe->save();
         }
+        $groupe->save();
 
         session()->flash('success', 'Groupe enregistré avec success.');
         return redirect()->back();
@@ -73,6 +74,9 @@ class GroupeController extends Controller
         $groupe = Groupe::find($id);
         if ($groupe) {
             return view('admin.tickets.groupe.show', compact('groupe'));
+        }else {
+            session()->flash('Warning', 'Groupe non existant !');
+            return redirect()->back();
         }
     }
 
@@ -87,6 +91,9 @@ class GroupeController extends Controller
         $groupe = Groupe::find($id);
         if ($groupe) {
             return view('admin.tickets.groupe.edit', compact('groupe'));
+        }else {
+            session()->flash('Warning', 'Groupe non existant !');
+            return redirect()->back();
         }
     }
 
@@ -99,7 +106,34 @@ class GroupeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'libelle' => ['required', Rule::unique('groupes', 'libelle')->ignore($id)]
+        ]);
+
+        $groupe = Groupe::find($id);
+        if (isset($request->toDelete)) {
+            foreach ($request->toDelete as $ticket_id) {
+                $ticket = Ticket::find($ticket_id);
+                $ticket->groupe_id = null;
+                $ticket->save();
+                $groupe->nbPersonnes -= 1;
+            }
+        }
+
+        $groupe->libelle = $request->libelle;
+
+        if (isset($request->tickets)) {
+            foreach ($request->tickets as $ticket_id) {
+                $ticket = Ticket::find($ticket_id);
+                $ticket->groupe_id = $groupe->id;
+                $ticket->save();
+                $groupe->nbPersonnes += 1;
+            }
+        }
+        $groupe->save();
+
+        session()->flash('success', 'Groupe modifié avec success.');
+        return redirect()->back();
     }
 
     /**
@@ -110,24 +144,36 @@ class GroupeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $groupe = Groupe::find($id);
+        if ($groupe) {
+            foreach ($groupe->tickets as $ticket) {
+                $ticket->groupe_id = null;
+                $ticket->save();
+            }
+            $groupe->delete();
+            session()->flash('success', 'Groupe supprimé avec success.');
+            return redirect()->back();
+        } else {
+            session()->flash('Warning', 'Groupe non existant !');
+            return redirect()->back();
+        }
     }
 
     public function searchTickets(Request $request)
     {
         $tickets = [];
-        if($request->has('q')){
-        // if (true) {
+        if ($request->has('q')) {
+            // if (true) {
             $search = $request->q;
-            $tickets = Ticket::join('personnes','tickets.personne_id','=','personnes.id')
-                    ->select('tickets.id','tickets.code','personnes.matricule')
-                    ->whereNull('tickets.groupe_id')
-                    ->where(function($query) use ($search){
-                        $query->where('personnes.matricule', 'LIKE', "%$search%")
-                            ->orWhere('personnes.nom', 'LIKE', "%$search%")
-                            ->orWhere('personnes.prenom', 'LIKE', "%$search%");
-                    })
-                    ->get();
+            $tickets = Ticket::join('personnes', 'tickets.personne_id', '=', 'personnes.id')
+                ->select('tickets.id', 'tickets.code', 'personnes.matricule')
+                ->whereNull('tickets.groupe_id')
+                ->where(function ($query) use ($search) {
+                    $query->where('personnes.matricule', 'LIKE', "%$search%")
+                        ->orWhere('personnes.nom', 'LIKE', "%$search%")
+                        ->orWhere('personnes.prenom', 'LIKE', "%$search%");
+                })
+                ->get();
         }
         return response()->json($tickets);
     }

@@ -77,7 +77,7 @@
                                                             <a href="{{route('groupe.edit', $groupe->id)}}" class="text-sm font-bold border-2 px-2 rounded-full  py-2 text-md">
                                                                 <i class="fa-regular fa-pen-to-square text-base font-bold px-1 " style="color: #0354C9"></i>
                                                             </a>
-                                                            <form action="{{route('groupe.destroy', $groupe->id)}}" method="post">
+                                                            <form action="{{route('groupe.destroy', $groupe->id)}}" method="post" onsubmit="return confirm('Voulez-vous vraiment ce groupe ?');">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <button class="text-sm font-bold text-red-600 border-2 px-2 rounded-full  py-2 text-md">
@@ -103,7 +103,7 @@
                     </div>
                 </div>
                 <!-- <div class="  ">
-                      
+
                         <div class=" py-4  my-2 ">
 
                             <div class="grid md:grid-cols-12  md:gap-6 gap-2">
@@ -115,7 +115,7 @@
                                         </div>
 
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="col-span-2 bg-white shadow-xl rounded-md md:h-64 h-32 font-bold px-4 py-2 pt-0 mb-3">
@@ -124,18 +124,18 @@
                                         <div class="flex items-center justify-center h-full w-full">
                                              Solo Externe
                                         </div>
-                                       
+
                                         <div class="text-center py-2">
                                             <a class="px-4 py-2 rounded-md font-bold bg-myblue text-white" href="{{route('admin.ticket.create.tse')}}"> Enregistrer </a>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
 
-                                
+
                             </div>
-                                
-                                             
+
+
                         </div>
 
                 </div> -->

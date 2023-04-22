@@ -9,7 +9,7 @@
             margin: 25px 0;
             font-size: 0.9em;
             font-family: sans-serif;
-            
+
             box-shadow: 0 0 20px rgba(59, 57, 57, 0.15);
         }
 
@@ -23,7 +23,7 @@
         .styled-table td {
             padding: 12px 15px;
             text-align:left;
-            
+
         }
 
         .styled-table tbody tr {
@@ -49,13 +49,13 @@
 
         .business-3{
             padding: 30px 0px;
-            display: table;   
+            display: table;
         }
 
         .card{
-            
-            width: 31%; 
-            
+
+            width: 31%;
+
             display: inline-block;
             border-radius: 10px;
             bo
@@ -81,13 +81,13 @@
         td{
             padding: 10px 20px;
         }
-        
+
         .table{
             width: 100%;
             border-collapse:collapse;
 
         }
-        
+
     </style>
 
 </head>
@@ -95,44 +95,46 @@
 
     <div style="
             display:flex;
- 
+
             width:100%;
             ">
-        
+
         <div style=" width:48%; display:inline-block;" >
-           
+
             <img alt="Logo C2E " src="logo_c2e.jpeg" style="height: 80px; width:130px" />
-        
+
         </div>
 
         <div style=" width:48%;text-align:right; display:inline-block;" >
-           
+
             <img alt="Logo du gala" src="img/gala ed.png" style="height: 100px; width:130px" />
-        
+
         </div>
 
     </div>
 
     <div style="margin:30px 0px; text-align:center; width:100% ;">
-       <span style="font-size:20px; font-weight:bold"> Liste des resultats pour l' IT AWARD 2022  </span> 
+       <span style="font-size:20px; font-weight:bold"> Liste des resultats pour l' IT AWARD 2023  </span>
     </div>
 
+    <p>- Vainqueur de la catégorie <span style="font-weight: bold; font-style:italic">"Meilleure promotion"</span> : Promotion <span style="font-weight: bold">IT {{ $promotionWinner }}</span></p>
+
    @foreach ($categories as $categorie )
-   
-    Categorie : <span style="font-weight: bold">{{$categorie->libelle}}</span>
+
+    - Categorie : <span style="font-weight: bold">{{$categorie->libelle}}</span>
 
     <table class="table">
             <thead>
                 <tr>
                     <th>#</th>
                     <th> matricule </th>
-                    <th> Noms et prénoms </th> 
-                    <th> classe </th> 
+                    <th> Noms et prénoms </th>
+                    <th> classe </th>
                     <th>  </th>
                 </tr>
             </thead>
-            
-        
+
+
             @foreach ($categorie->nomines as $id =>  $nomine )
                 <tr>
 
@@ -142,7 +144,7 @@
 
                     <td>
                         {{$nomine->user->etudiant->matricule}}
-                    </td> 
+                    </td>
 
                     <td>
                         {{$nomine->user->etudiant->nom}}  {{$nomine->user->etudiant->prenom}}
@@ -169,10 +171,10 @@
 
    @endforeach
 
-  
+
    <p>
-       Fait à Abidjan le {{$date}} fournit par l'administrateur de la plate-forme N2R
+       Fait à Abidjan le {{$date}} fournit par l'administrateur de la plate-forme AMANGOUA KOUASSI.
    </p>
-        
+
 </body>
 </html>

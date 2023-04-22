@@ -28,7 +28,7 @@ class AdminSeeder extends Seeder
 
 
         $role = Role::create(['name'=> 'Super@Administrateur']);
-    
+
         Role::create(['name'=> 'Administrateur']);
 
         //caissière
@@ -48,7 +48,7 @@ class AdminSeeder extends Seeder
             'isAdmin' => true
         ]);
 
-            
+
         $user->assignRole('Super@Administrateur') ;
 
         $caissiere1 = User::create([
@@ -58,7 +58,7 @@ class AdminSeeder extends Seeder
             'isAdmin' => true
         ]);
 
-            
+
         $caissiere1->assignRole('Caissiere') ;
 
         $participant1 = User::create([
@@ -68,7 +68,7 @@ class AdminSeeder extends Seeder
             'isAdmin' => true
         ]);
 
-            
+
         $participant1->assignRole('participant') ;
 
         $controller1 = User::create([
@@ -78,9 +78,9 @@ class AdminSeeder extends Seeder
             'isAdmin' => true
         ]);
 
-            
+
         $controller1->assignRole('Controlleur') ;
-        
+
 
         $user1 = User::create([
             'name' => 'Super@dministrateur',
@@ -89,10 +89,10 @@ class AdminSeeder extends Seeder
             'isAdmin' => true
         ]);
 
-            
+
         $user1->assignRole('Super@Administrateur') ;
 
-        
+
 
         TypeTicket::create([
             'libelle' => 'solo interne',
@@ -106,30 +106,35 @@ class AdminSeeder extends Seeder
             'gala_id' => $gala->id
         ]);
 
-       /* TypeTicket::create([
-            'libelle' => 'couple interne',
-            'prix' => 35000,
-            'gala_id' => $gala->id
-        ]);
+        // TypeTicket::create([
+        //     'libelle' => 'couple interne',
+        //     'prix' => 35000,
+        //     'gala_id' => $gala->id
+        // ]);
 
-        TypeTicket::create([
-            'libelle' => 'couple mixte',
-            'prix' => 40000,
-            'gala_id' => $gala->id
-        ]);
+        // TypeTicket::create([
+        //     'libelle' => 'couple mixte',
+        //     'prix' => 40000,
+        //     'gala_id' => $gala->id
+        // ]);
 
-        TypeTicket::create([
-            'libelle' => 'couple externe',
-            'prix' => 40000,
-            'gala_id' => $gala->id
-        ]);  
+        // TypeTicket::create([
+        //     'libelle' => 'couple externe',
+        //     'prix' => 40000,
+        //     'gala_id' => $gala->id
+        // ]);
 
+        // TypeTicket::create([
+        //     'libelle' => 'duo interne',
+        //     'prix' => 35000,
+        //     'gala_id' => $gala->id
+        // ]);
+/*
         TypeTicket::create([
             'libelle' => 'duo interne',
             'prix' => 35000,
             'gala_id' => $gala->id
         ]); */
 
-        
     }
 }
