@@ -1,166 +1,73 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="">
-        <style>
-            main{
-                display: flex;
-                justify-content: center;
-            }
 
-            .ticket{
-                width: 100%;
-                height: 350px;
-                display: inline-block;
-                background-color: #000;
-                color: #fff;
-                border-radius: 15px;
-                background-image: url(bg_ticket.jpg);
-                background-size: cover;
-                background-position: center;
-                border: 1px solid #000;
-                position: relative;
-            }
+<head>
+    <style>
+        main {
+            display: flex;
+            justify-content: center;
+        }
 
-            .border{
-                border: solid;
-            }
-            
-            .ticket .ticket-presentation{
-                padding: 20px;
-                flex-grow: 2;
-                flex-direction: column;
-                display: flex;
-                justify-content: space-between;
-            }
+        .ticket {
+            width: 100%;
+            height: 450px;
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            border-radius: 10px;
+            background-image: url(ticket.png);
+            background-size: cover;
+            position: relative;
+            padding:
+        }
 
-            .ticket .ticket-qrcode{
-                padding: 10px;
-                width: 300px;
-                height: 360px;
-                display: flex;
-                align-items: center;
-                justify-content: space-around;
-                border-left: 6px dotted #fff;
-                flex-direction: column;
-                position: relative;
-                top:-350px;
-                left:450px;
-            }
+        .ticket-owner {
+            margin: 210px 260px 0px 40px;
+        }
 
-            .ticket .ticket-qrcode .qrcode-container{
-                width: 200px;
-                height: 200px;
-                background-size: cover;
-                position: relative;
-                left:13px;
-                top:20px
-            }
+        .owner-name {
+            font-size: 37px;
+            text-align: center;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
 
-            .ticket .ticket-qrcode .c2e{
-                position: relative;
-                left:65px;
-                top: 40px
-            }
+        .ticket-code {
+            text-align: center;
+            font-size: 18px
+        }
 
-            .ticket .ticket-presentation .ticket-title{
-                display: flex;
-            }
+        .ticket-qrcode {
+            margin-left: 350px;
+            height: 130px;
+            width: 130px;
+            position: absolute;
+            bottom: 15px;
+            border: 4px solid rgb(182 141 50);
+        }
 
-            .ticket .ticket-presentation .ticket-title .ticket-date-time{
-                display: flex;
-                position: relative;
-                left: -20px;
-            }
+        .ticket-qrcode img {
+            height: 130px;
+        }
+    </style>
+</head>
 
-            .ticket .ticket-presentation .ticket-title .ticket-date-time .mt{
-                position: relative;
-                left: 95px;
-                top: -100px
-            }
+<body>
+    <main>
+        <div class="ticket">
 
-            .ticket .ticket-presentation .ticket-title .ticket-date-time .day{
-                font-size: 90px;
-            }
-
-            .ticket .ticket-presentation .ticket-title .ticket-date-time .month{
-                font-weight: bold;
-            }
-
-            .ticket .ticket-presentation .ticket-title .ticket-date-time .day .value{
-                position: relative;
-                top: -18px;
-                left: 15px;
-            }
-
-            .ticket .ticket-presentation .ticket-title .ticket-header .itgala{
-                font-weight: bold;
-            }
-
-            .ticket .ticket-presentation .ticket-title .ticket-header{
-                margin-left: 40px;
-                font-size: 30px;
-                position: relative;
-                top:-145px;
-                left: 100px
-            }
-
-            .ticket .ticket-presentation .ticket-owner{
-                width: 400px;
-                padding: 5px;
-                background-color: rgba(0,0,0,0.3);
-                border-radius: 10px
-            }
-
-            .ticket .ticket-presentation .ticket-owner .owner-name{
-                font-weight: bold;
-                font-size: 25px;
-            }
-
-            .ticket .ticket-presentation .ticket-owner .ticket-num{
-                font-size: 25px;
-            }
-
-        </style>
-    </head>
-    <body>
-        <main>
-            <div class="ticket">
-                <div class="ticket-presentation">
-                    <div class="ticket-title">
-                        <div class="ticket-date-time">
-                            <div class="day">
-                                <span class="value">17</span>
-                            </div>
-                            <div class="mt">
-                                <div class="month">JUIN</div>
-                                <div class="time">19H</div>
-                            </div>
-                        </div>
-                        <div class="ticket-header">
-                            <div class="itgala">IT GALA 2023</div>
-                            <div>Prépare-toi !</div>
-                        </div>
-                    </div>
-                    <div class="ticket-owner">
-                        <div class="owner-name">
-                            {{$nom}}
-                            
-                            {{$prenom}}
-                        </div>
-                        <div class="ticket-num">
-                            N° {{$identifiant}}
-                        </div>
-                    </div>
+            <div class="ticket-owner">
+                <div class="owner-name">
+                    {{ucfirst($nom)}} {{ucwords($prenom)}}
                 </div>
-                <div class="ticket-qrcode">
-                    <div class="qrcode-container" style="padding: 8px; background:#fff">
-                        <img src="data:image/png;base64, {!! $qr_code !!}">
-                    </div>
-                    <div class="c2e">
-                        <img src="logo_c2e.jpeg" width="100px">
-                    </div>
+                <div class="ticket-code">
+                    N°{{ $identifiant }}
                 </div>
             </div>
-        </main>
-    </body>
+
+            <div class="ticket-qrcode">
+                <img src="data:image/png;base64, {!! $qr_code !!}">
+            </div>
+    </main>
+</body>
+
 </html>

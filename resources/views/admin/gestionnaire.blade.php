@@ -103,7 +103,7 @@
                                 <a href="{{ route('exportGroupePDF', false, null) }}" target="_blank">
                                     <button class="px-4 py-2 mt-5 font-bold text-white rounded-md" style="background-color: #0284c7">Exporter la liste des groupes</button>
                                 </a>
-                                <a href="{{ route('exportWinnersPDF', false, null) }}">
+                                <a href="{{ route('exportWinnersPDF', false, null) }}" target="_blank">
                                     <button class="px-4 py-2 mt-5 font-bold text-white bg-gray-600 rounded-md">Exporter la liste des Nominés</button>
                                 </a>
 

@@ -107,7 +107,7 @@
 
         <div style=" width:48%;text-align:right; display:inline-block;">
 
-            <img alt="Logo du gala" src="img/gala ed.png" style="height: 100px; width:130px" />
+            <img alt="Logo du gala" src="img/gala ed 1.png" style="height: 120px; width:130px" />
 
         </div>
 

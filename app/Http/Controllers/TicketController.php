@@ -68,7 +68,7 @@ class TicketController extends Controller
         $personne = personne::find($id) ;
 
         $maildata = [
-            'title' => 'Ticket IT GALA 2022',
+            'title' => 'Ticket IT GALA 2023',
             'personne' => $personne
         ];
 
@@ -271,7 +271,7 @@ class TicketController extends Controller
                     'ticket_id' => $ticket->id
                 ]);
 
-                $code = 'ITGALA22-00'.$ticket->id ;
+                $code = 'ITGALA23-00'.$ticket->id ;
                 $ticket->code = $code ;
                 $ticket->save() ;
 
@@ -362,7 +362,7 @@ class TicketController extends Controller
             ]);
 
 
-            $code = 'ITGALA22-00'.$ticket->id ;
+            $code = 'ITGALA23-00'.$ticket->id ;
             $ticket->code = $code ;
             $ticket->save() ;
 
@@ -419,7 +419,7 @@ class TicketController extends Controller
         ]);
 
 
-        $code = 'ITGALA22-00'.$ticket->id ;
+        $code = 'ITGALA23-00'.$ticket->id ;
         $ticket->code = $code ;
         $ticket->save() ;
 
@@ -472,7 +472,7 @@ class TicketController extends Controller
         ]);
 
 
-        $code = 'ITGALA22-00'.$ticket->id ;
+        $code = 'ITGALA23-00'.$ticket->id ;
         $ticket->code = $code ;
         $ticket->save() ;
 
@@ -545,7 +545,7 @@ class TicketController extends Controller
                 'code' => ''
             ]);
 
-            $code = 'ITGALA22-00'.$ticket->id ;
+            $code = 'ITGALA23-00'.$ticket->id ;
             $ticket->code = $code ;
             $ticket->save() ;
 
@@ -642,7 +642,7 @@ class TicketController extends Controller
                     'ticket_id' => $ticket->id
                 ]);
 
-                $code = 'ITGALA22-00'.$ticket->id ;
+                $code = 'ITGALA23-00'.$ticket->id ;
                 $ticket->code = $code ;
                 $ticket->save() ;
 
