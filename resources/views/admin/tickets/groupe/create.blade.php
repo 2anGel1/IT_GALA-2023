@@ -136,9 +136,9 @@
                     return {
                         results: $.map(data, function(item) {
                             return {
-                                html: "<span>Ticket N°" + item.code +
+                                html: "<span>Ticket N°" +item.code +
                                     "</span><br><span>Matricule étudiant : " + item.matricule +
-                                    "</span>",
+                                    "</span><br><span>Nom et prénoms : " + item.nom + " " + item.prenom + "</span>",
                                 text: 'Ticket N°' + item.code,
                                 id: item.id,
                             }

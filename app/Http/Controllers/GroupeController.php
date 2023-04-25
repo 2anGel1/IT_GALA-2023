@@ -162,11 +162,11 @@ class GroupeController extends Controller
     public function searchTickets(Request $request)
     {
         $tickets = [];
-        if ($request->has('q')) {
+        if ($request->has('q') and $request->q != null) {
             // if (true) {
             $search = $request->q;
             $tickets = Ticket::join('personnes', 'tickets.personne_id', '=', 'personnes.id')
-                ->select('tickets.id', 'tickets.code', 'personnes.matricule')
+                ->select('tickets.id', 'tickets.code', 'personnes.matricule', 'personnes.nom', 'personnes.prenom')
                 ->whereNull('tickets.groupe_id')
                 ->where(function ($query) use ($search) {
                     $query->where('personnes.matricule', 'LIKE', "%$search%")
