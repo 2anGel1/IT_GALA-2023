@@ -82,8 +82,6 @@ Route::middleware([
 
         Route::get('/liste/nomines', App\Http\Livewire\Admin\Award\Liste::class)->name('admin.award.liste') ;
 
-
-
     });
 
 

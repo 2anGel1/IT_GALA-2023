@@ -28,6 +28,15 @@ class AdminSeeder extends Seeder
 
 
         $role = Role::create(['name'=> 'Super@Administrateur']);
+        $user1 = User::create([
+            'name' => 'Super@dministrateur',
+            'email' => 'adminGala@C2E.com',
+            'password' => Hash::make("@Gala@2k22@"),
+            'isAdmin' => true
+        ]);
+
+
+        $user1->assignRole('Super@Administrateur');
 
         Role::create(['name'=> 'Administrateur']);
 
@@ -41,58 +50,45 @@ class AdminSeeder extends Seeder
         // Permission::create(['name' => 'hackaton']);
 
 
-        $user = User::create([
-            'name' => '@dmin.istrateur',
-            'email' => 'adminGala@C2E.com',
-            'password' => Hash::make("@Gala@2k22@"),
-            'isAdmin' => true
-        ]);
+        // $user = User::create([
+        //     'name' => '@dministrateur',
+        //     'email' => 'adminGala@C2E.com',
+        //     'password' => Hash::make("@Gala@2k22@"),
+        //     'isAdmin' => true
+        // ]);
 
 
-        $user->assignRole('Super@Administrateur') ;
+        // $user->assignRole('Super@Administrateur') ;
 
-        $caissiere1 = User::create([
-            'name' => '@Caissiere',
-            'email' => 'adminGala@C2E.com',
-            'password' => Hash::make("@Gala@2k22@"),
-            'isAdmin' => true
-        ]);
-
-
-        $caissiere1->assignRole('Caissiere') ;
-
-        $participant1 = User::create([
-            'name' => '@Participant',
-            'email' => 'adminGala@C2E.com',
-            'password' => Hash::make("@Gala@2k22@"),
-            'isAdmin' => true
-        ]);
+        // $caissiere1 = User::create([
+        //     'name' => '@Caissiere',
+        //     'email' => 'adminGala@C2E.com',
+        //     'password' => Hash::make("@Gala@2k22@"),
+        //     'isAdmin' => true
+        // ]);
 
 
-        $participant1->assignRole('participant') ;
+        // $caissiere1->assignRole('Caissiere') ;
 
-        $controller1 = User::create([
-            'name' => '@Controlleur',
-            'email' => 'adminGala@C2E.com',
-            'password' => Hash::make("@Gala@2k22@"),
-            'isAdmin' => true
-        ]);
-
-
-        $controller1->assignRole('Controlleur') ;
+        // $participant1 = User::create([
+        //     'name' => '@Participant',
+        //     'email' => 'adminGala@C2E.com',
+        //     'password' => Hash::make("@Gala@2k22@"),
+        //     'isAdmin' => true
+        // ]);
 
 
-        $user1 = User::create([
-            'name' => 'Super@dministrateur',
-            'email' => 'adminGala@C2E.com',
-            'password' => Hash::make("@Gala@2k22@"),
-            'isAdmin' => true
-        ]);
+        // $participant1->assignRole('participant') ;
+
+        // $controller1 = User::create([
+        //     'name' => '@Controlleur',
+        //     'email' => 'adminGala@C2E.com',
+        //     'password' => Hash::make("@Gala@2k22@"),
+        //     'isAdmin' => true
+        // ]);
 
 
-        $user1->assignRole('Super@Administrateur') ;
-
-
+        // $controller1->assignRole('Controlleur') ;
 
         TypeTicket::create([
             'libelle' => 'solo interne',
