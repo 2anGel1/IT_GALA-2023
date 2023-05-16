@@ -1,5 +1,7 @@
 # ITGALA 2023
 
+![gala ed](https://github.com/mrVaro/IT_GALA-2023/assets/62190055/3be9c881-0082-4235-a103-b4515ef86d50)
+
 Bienvenue dans le projet ITGALA 2023 ! Cette application Laravel a été conçue et développée pour faciliter l'organisation d'un gala et la gestion des récompenses de l'établissement ITAWARDs.
 
 ## Description du projet
