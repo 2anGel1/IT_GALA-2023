@@ -1,65 +1,40 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# ITGALA 2023
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Bienvenue dans le projet ITGALA 2023 ! Cette application Laravel a été conçue et développée pour faciliter l'organisation d'un gala et la gestion des récompenses de l'établissement ITAWARDs.
 
-## About Laravel
+## Description du projet
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+ITGALA 2023 est une application web basée sur le framework Laravel qui permet d'inscrire les participants à un gala, de leur transmettre leurs tickets et de gérer la vérification à l'entrée grâce à des QR Codes. En plus de ces fonctionnalités, l'application offre également la possibilité de gérer les ITAWARDs, des récompenses internes de l'établissement.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Fonctionnalités clés
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Inscription des participants**: Les participants peuvent s'inscrire facilement en fournissant les informations requises via l'application web.
+- **Génération de tickets**: Une fois inscrits, les participants reçoivent leurs tickets électroniques, qui peuvent être consultés et téléchargés à tout moment.
+- **Vérification à l'entrée**: À l'entrée du gala, les tickets électroniques des participants sont scannés à l'aide de QR Codes pour faciliter et accélérer le processus de vérification.
+- **Gestion des ITAWARDs**: Les étudiants de l'établissement peuvent participer aux votes pour les ITAWARDs, permettant ainsi de sélectionner les lauréats des différentes catégories.
+- **Interface conviviale**: L'application offre une interface utilisateur intuitive et conviviale, garantissant une expérience agréable pour tous les utilisateurs.
 
-## Learning Laravel
+## Installation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. Clonez ce dépôt sur votre machine locale.
+2. Assurez-vous d'avoir installé PHP (version 8) ainsi que Composer sur votre machine.
+3. Configurez les paramètres de l'application en modifiant le fichier `.env`.
+4. Exécutez la commande `composer install` pour installer toutes les dépendances nécessaires.
+5. Générez la clé de l'application avec la commande `php artisan key:generate`.
+6. Exécutez les migrations avec la commande `php artisan migrate`.
+7. Lancez le serveur de développement avec la commande `php artisan serve`.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Contribuer
 
-## Laravel Sponsors
+Les contributions à l'amélioration de l'application sont les bienvenues ! Si vous souhaitez contribuer, veuillez suivre les étapes suivantes :
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+1. Fork ce dépôt.
+2. Créez une nouvelle branche pour vos modifications.
+3. Faites les modifications nécessaires et effectuez des tests.
+4. Soumettez une demande de pull avec une description détaillée de vos modifications.
 
-### Premium Partners
+## Auteur
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Ce projet a été conçu et développé par N'DA Regis Richmond, AMANGOUA Kouassi et AMION Jean Jaurès .
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-"# IT_GALA-2022" 
