@@ -7,9 +7,9 @@
   <link rel="stylesheet" media="screen" href="{{asset('css/particles.css')}}">
 
   <link rel="icon" href="{{asset('img/gala ed.png')}}" type="image/icon type">
-  <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <!-- Scripts -->
-  <script src="{{ mix('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/app.js') }}" defer></script>
 
 </head>
 <body style="background-color: #fff">
