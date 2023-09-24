@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>C2E | IT GALA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" media="screen" href="{{asset('css/particles.css')}}">
+
+  <link rel="icon" href="public/img/gala ed.png" type="image/icon type">
+  <link rel="stylesheet" href="public/css/app.css">
+  <!-- Scripts -->
+  <script src="public/js/app.js" defer></script>
+
+</head>
+<body>
+
+    <center>
+        <a href="https://itgala23.c2e-ci.com/public">---Cliquer pour ccéder à la page du IT Gala 2023---</a>
+    </center>
+    
+</body>
+</html>
